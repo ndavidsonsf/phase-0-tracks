@@ -13,3 +13,16 @@
 .accomplishments {
 	font-size: .8em;
 }
+
+p::first-letter {
+	color: orange;
+	
+}
+
+section > section {
+	color: orange;
+}
+
+ul > li {
+	color: green;
+}
