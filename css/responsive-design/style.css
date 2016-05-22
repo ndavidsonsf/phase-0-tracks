@@ -1,9 +1,12 @@
 main {
   margin-left: 200px;
+  max-width: 960px;
+  min-width: 20px;
 }
 
 section#external-links {
-  width: 200px;
+  width: 20%;
+  min-width: 10px;
   float: left;
 }
 
@@ -38,4 +41,16 @@ figure {
 figcaption {
   font-style: italic;
   text-align: right;
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    font-size: .2em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    width: 100%;
+  }
 }
