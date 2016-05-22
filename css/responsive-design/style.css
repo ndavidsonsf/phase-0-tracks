@@ -1,3 +1,13 @@
+main {
+  width: 756px;
+  margin-left: 200px;
+}
+
+section#external-links {
+  width: 200px;
+  float: left;
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
