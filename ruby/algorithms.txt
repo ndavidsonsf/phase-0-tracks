@@ -1,0 +1,7 @@
+- Enter elevator
+- Turn 180 degrees clockwise
+- Check right for control panel if not, go left.
+- Start at lobby, until desired floor is found
+	- press button
+	- if not, add 1
+- Exit elevator
