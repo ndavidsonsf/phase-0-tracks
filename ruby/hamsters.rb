@@ -33,3 +33,4 @@ puts "Squeek Volume: #{volume}"
 puts "Fur Color: #{fur}"
 puts "Adoptable: #{adoptable}"
 puts "Estimated Age: #{age.class}"
+puts
