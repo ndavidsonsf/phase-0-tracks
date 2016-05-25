@@ -5,3 +5,12 @@
 	- press button
 	- if not, add 1
 - Exit elevator
+
+
+Watching tv
+-Turn on tv
+-For each channel available
+	- Determine whether I like the program
+	- If no, increase channel by 1
+	- If yea, watch channel
+	- Otherwise, turn tv off
