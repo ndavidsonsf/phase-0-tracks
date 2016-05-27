@@ -55,7 +55,6 @@ else
 end
 
 # Detection logic
-
 if vampire_name == true
 	puts "Definitely a vampire."
 elsif vampire_age = false && (vampire_garlic = true || vampire_insurance = true)
@@ -68,10 +67,5 @@ else
 	puts "Results inconclusive."
 end
 
-puts vampire_name
-puts vampire_age
-puts vampire_garlic
-puts vampire_insurance
-		
 
 
