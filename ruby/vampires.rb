@@ -30,6 +30,14 @@ while number_of_employees > 0
 	puts "Would you live to enroll in our comprehensive health plan? (y/n)"
 	insurance = gets.chomp
 
+	# loop for allergies
+	loop do
+		puts "Please list all allergies, if none type 'done'."
+		allergies = gets.chomp
+		if allergies == "done" || allergies == "sunshine"
+			break
+		end
+	end
 
 	# Vampire detection variables
 	vampire_name = false
@@ -73,7 +81,7 @@ while number_of_employees > 0
 		puts "Definitely a vampire."
 	elsif vampire_age = false && (vampire_garlic = true || vampire_insurance = true)
 		puts "Probably not a vampire."
-	elsif vampire_age = true && (vampire_garlic = true && vampire_insurance = true)
+	elsif vampire_age = true && (vampire_garlic = true && vampire_insurance = true) || allergies == "sunshine"
 		puts "Probably a vampire."
 	elsif vampire_age = true && vampire_garlic = true && vampire_insurance = true
 		puts "Almost certainly a vampire."
