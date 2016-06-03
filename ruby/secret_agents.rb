@@ -15,13 +15,24 @@ decryption
 
 
 def encrypt(string)
+	
+	string = string.delete(' ')
 	index = 0
+	
 	while index < string.length
+
 		string[index] = string[index].next!
-		puts string[index]
+		print string[index]
 		index += 1
 	end
+	puts
+
+	
+	
 end
 
-encrypt('abc')
+encrypt('abc ')
+encrypt('zed')
+
+
 
