@@ -23,9 +23,12 @@ def encrypt(string)
 	# while loop for interation through length of string
 	while index < string.length
 		character = string[index]
-		# conditionals for blank spaces
+		# conditionals for blank spaces and edge cases
 		if character == " "
 			print " "
+			index += 1
+		elsif character == "z"
+			print "a"
 			index += 1
 		else
 			character = alphabet[character].next!
