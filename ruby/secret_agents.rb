@@ -16,23 +16,52 @@ decryption
 
 def encrypt(string)
 	
-	string = string.delete(' ')
 	index = 0
+	alphabet = "abcdefghijklmnopqrstuvwxyz"
 	
 	while index < string.length
-
-		string[index] = string[index].next!
-		print string[index]
-		index += 1
+		character = string[index]
+		if character == " "
+			print " "
+			index += 1
+		else
+			character = alphabet[character].next!
+			print character
+			index += 1
+		end
 	end
 	puts
-
-	
-	
 end
+
+def decrypt(string)
+
+	index = 0
+	alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+	while index < string.length
+		character = string[index]
+
+		if character == " "
+			print " "
+			index += 1
+		else
+			og_char_index = alphabet.index(character)
+			previous_char_index = og_char_index - 1
+			prev_char = alphabet[previous_char_index]
+			print prev_char
+			index += 1
+		end
+	end
+	puts
+end
+
+
+
 
 encrypt('abc ')
 encrypt('zed')
+decrypt("bcd")
+decrypt("afe")
 
 
 
