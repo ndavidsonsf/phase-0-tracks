@@ -13,14 +13,17 @@ decryption
 
 
 
-
+# encryption method
 def encrypt(string)
 	
+	# set index and string for index
 	index = 0
 	alphabet = "abcdefghijklmnopqrstuvwxyz"
 	
+	# while loop for interation through length of string
 	while index < string.length
 		character = string[index]
+		# conditionals for blank spaces
 		if character == " "
 			print " "
 			index += 1
@@ -30,17 +33,21 @@ def encrypt(string)
 			index += 1
 		end
 	end
-	puts
+	puts # adds spacing
 end
 
+# decryption method
 def decrypt(string)
 
+	# set index and string for index
 	index = 0
 	alphabet = "abcdefghijklmnopqrstuvwxyz"
 
+	# while loop for interation through length of string
 	while index < string.length
 		character = string[index]
 
+		# conditional for blank space
 		if character == " "
 			print " "
 			index += 1
@@ -52,7 +59,7 @@ def decrypt(string)
 			index += 1
 		end
 	end
-	puts
+	puts # adds spacing
 end
 
 
