@@ -16,27 +16,26 @@ decryption
 # encryption method
 def encrypt(string)
 	
-	# set index and string for index
+	# set index, string for index, and empty string
 	index = 0
 	alphabet = "abcdefghijklmnopqrstuvwxyz"
+	message = ""
 	
 	# while loop for interation through length of string
 	while index < string.length
 		character = string[index]
 		# conditionals for blank spaces and edge cases
 		if character == " "
-			print " "
-			index += 1
+			message << " "
 		elsif character == "z"
-			print "a"
-			index += 1
+			message << "a"
 		else
 			character = alphabet[character].next!
-			print character
-			index += 1
+			message << character
 		end
+		index += 1
 	end
-	puts # adds spacing
+	puts message
 end
 
 # decryption method
@@ -45,6 +44,7 @@ def decrypt(string)
 	# set index and string for index
 	index = 0
 	alphabet = "abcdefghijklmnopqrstuvwxyz"
+	message = ""
 
 	# while loop for interation through length of string
 	while index < string.length
@@ -52,26 +52,26 @@ def decrypt(string)
 
 		# conditional for blank space
 		if character == " "
-			print " "
-			index += 1
+			message << " "
 		else
-			og_char_index = alphabet.index(character)
-			previous_char_index = og_char_index - 1
-			prev_char = alphabet[previous_char_index]
-			print prev_char
-			index += 1
+			previous_char_index = alphabet.index(character) - 1
+			message << alphabet[previous_char_index]
 		end
+
+		index += 1
 	end
-	puts # adds spacing
+	puts message
 end
 
 
 
 
-encrypt('abc ')
+encrypt('abc ') # this one includes a space for debugging purposes
 encrypt('zed')
 decrypt("bcd")
 decrypt("afe")
+
+decrypt(encrypt("swordfish")) # this doesn't work and I am not sure why so I can't add a comment explaining why it works
 
 
 
