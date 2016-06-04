@@ -54,7 +54,9 @@ Airport
 			-B787-8
 =end
 
+# initializes airport hash
 airport = {
+	
 	international: {
 		name: 'International',
 		'Cathay Pacific' => ['A330-300', 'A340-300', 'A350-900', 'B777-300', 'B777-300ER'],
@@ -83,6 +85,8 @@ airport = {
 
 }
 
+
+# outputs
 p airport
 puts
 p airport[:terminal_3][:name]
