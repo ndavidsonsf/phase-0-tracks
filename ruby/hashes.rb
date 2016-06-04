@@ -38,13 +38,13 @@ client_card[:name] = gets.chomp
 
 print "Age: "
 client_age = gets.chomp
-client_age = client_age.to_i
+client_age = client_age.to_i # casting age to integer
 client_card[:age] = client_age
 
 print "Number of Children (if none, press enter): "
 num_of_children = nil 
 num_of_children = gets.chomp
-num_of_children = num_of_children.to_i
+num_of_children = num_of_children.to_i # casting children to integer
 client_card[:children] = num_of_children
 
 print "Decor theme: "
@@ -55,6 +55,8 @@ puts "Likes (enter y or n)"
 print "Fringe?: "
 likes_fringe = gets.chomp
 likes_fringe = likes_fringe.downcase
+
+# casting to boolean
 if likes_fringe == "y"
 	client_card[:fringe] = true
 else
@@ -77,3 +79,38 @@ p client_card
 puts "-------------------------------------------------"
 
 # prompt user if they made a mistake
+print "Would you like to update one of the fields above? "
+update_needed = gets.chomp
+update_needed = update_needed.downcase
+
+# conditional for update
+if update_needed == "y"
+	
+	print "Please enter the label you would like to change as printed above: "
+	user_update_label = gets.chomp
+	
+	print "What is the updated value of that field: "
+	user_update = gets.chomp
+	
+	# to convert age and children fields back to integers
+	if user_update_label == "age" || user_update_label == "children"
+		user_update_label = user_update_label.to_sym
+		user_update = user_update.to_i
+		client_card[user_update_label] = user_update
+	else
+		user_update_label = user_update_label.to_sym
+		client_card[user_update_label] = user_update
+	end
+
+	#prints updated client card
+	puts "-------------------------------------------------"
+	puts "Your updates:"
+	p client_card
+end
+puts "-------------------------------------------------"
+puts "Client information has been - SAVED.".center(48)
+
+
+
+
+
