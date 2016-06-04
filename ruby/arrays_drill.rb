@@ -1,4 +1,14 @@
 
+# add a method that takes three items as parameters and returns an array of those items
+def build_array(x, y, z)
+	tea_lineup = [x, y, z]
+end
+
+# add a method that takes an array and an item as parameters, and return the array with the item added.
+def add_to_array(x, y)
+	x << y
+end
+
 # Initialize an empty array and store it in a variable (you can choose the name). Print the variable using p.
 new_array = []
 p new_array
@@ -28,3 +38,7 @@ newer_array = ["Guatemala Antigua", "Cafe Verona", "Willow Blend"]
 # Add the two arrays together and store them in a new variable.  Print the new array.
 coffee_lineup = new_array + newer_array
 p coffee_lineup
+
+p build_array("Jade", "English Breakfast", "Chai")
+p add_to_array([], "espresso")
+p add_to_array(["decaf", "long", "espresso"], "ristretto")
