@@ -1,12 +1,12 @@
 
 # add a method that takes three items as parameters and returns an array of those items
 def build_array(x, y, z)
-	tea_lineup = [x, y, z]
+  tea_lineup = [x, y, z]
 end
 
 # add a method that takes an array and an item as parameters, and return the array with the item added.
 def add_to_array(x, y)
-	x << y
+  x << y
 end
 
 # Initialize an empty array and store it in a variable (you can choose the name). Print the variable using p.
