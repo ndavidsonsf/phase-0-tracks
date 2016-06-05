@@ -1,13 +1,14 @@
 # Pairing with Roger
 
-=begin
+
 def test
 	puts "This is not a test"
 	yield
 end
 
 test { puts "...or is it?"}
-=end
+
+# Release 1
 
 types_of_cars = ['sedan', 'coupe', 'wagon', 'convertible', 'truck']
 
@@ -49,6 +50,59 @@ end
 puts "After .map! call"
 p types_of_cars
 puts
+
+
+# Release 2
+
+#1
+some_array = [31, 89, 2, 600, 40, 123]
+p some_array.delete_if { |num| num < 90 }
+
+
+#2
+some_array = [31, 89, 2, 600, 40, 123]
+p some_array.reject { |num| num > 90 }
+
+#3
+some_array = [31, 89, 2, 600, 40, 123]
+p some_array.select { |num| num.even? }
+
+#4
+p some_array.take_while { |num| num < 90 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
