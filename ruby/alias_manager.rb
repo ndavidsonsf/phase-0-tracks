@@ -20,13 +20,17 @@ def simple_encoder(letter)
 		v_index = vowels.index(letter)
 		if v_index == 4
 			return 'a'
+		end
 		vowels[v_index + 1]
 	else
-		next_letter = letter.next
-		if vowels.include?(next_xyz)
-			return letter_xyz.next
+		if letter == 'z'
+			return 'b'
 		end
-		return letter_xyz
+		next_letter = letter.next
+		if vowels.include?(next_letter)
+			return next_letter.next
+		end
+		return next_letter
 	end
 end
 
@@ -40,32 +44,17 @@ puts
 print "Enter your name: "
 
 user_name = gets.chomp
-user_name = user_name.downcase
-names_array = user_name.split(' ')
+user_name_lower = user_name.downcase
+names_array = user_name_lower.split(' ')
 
 
 
 names_array[0] = names_array[0].split('').map! { |letter| simple_encoder(letter) }
 names_array[1] = names_array[1].split('').map! { |letter| simple_encoder(letter) }
 
-
-
-
-
-
-
-
-
-
-
-
-=begin
-names_array.each_index do | index |
-	names_array[index].map! { |letter| letter.next }
-
-end
-=end
-p names_array
+puts
+puts "You entered: #{user_name}."
+puts "Your new Secret Spy Alias is: #{names_array[1].join.capitalize} #{names_array[0].join.capitalize}"
 
 
 
