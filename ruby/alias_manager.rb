@@ -14,4 +14,23 @@ Pseudocode
 
 =end
 
+def next_vowel(letter)
+	
+	if letter == 'a'
+		letter = "e"
+	elsif letter == 'e'
+		letter = "i"
+	elsif letter == 'i'
+		letter = 'o'
+	elsif letter == 'o'
+		letter = 'u'
+	else
+		letter = 'a'
+	end
+end
+
+
+			
+			
+			
 
