@@ -48,11 +48,14 @@ def simple_encoder(letter)
 	end
 end
 
-stored_names = []
+
 puts "--------------------------------------------------"
 puts "DBC Alias Manager".center(50)
 puts "--------------------------------------------------"
 puts
+
+# initalizes array to store name tuples
+stored_names = []
 
 # main program loop
 while true do
@@ -67,23 +70,42 @@ while true do
 		break	
 	end
 	
-	# splits the array into names, and then to individual characters
+	# splits the array into names
 	names_array = user_name_lower.split(' ')
-	names_array[0] = names_array[0].split('').map! { |letter| simple_encoder(letter) }
-	names_array[1] = names_array[1].split('').map! { |letter| simple_encoder(letter) }
+	
+	# takes each name 
+	# 1. splits into individual characters
+	# 2. maps the characters and passes each letter to the encoder method
+	# 3. stores the encoded letters as an array in place of the original name string
+	names_array.each_index do | name_index |
+		names_array[name_index] = names_array[name_index].split('').map! { |letter| simple_encoder(letter) }
+	end
+
 	# create array of user input and encoded name
 	stored_names << [names_array, user_name]
 	
 end
 
 # Outputs
-	puts
-	stored_names.each do | name_tuples |
-		names_array = name_tuples[0]
-		user_name = name_tuples[1]
-		print "The Secret Spy Alias, #{names_array[1].join.capitalize} "
-		puts "#{names_array[0].join.capitalize}, is actually #{user_name}."
+puts
+
+# takes each stored name tuple
+# 1. extracts the encoded names as names_array
+# 2. extracts the original user entered name as user_name
+# 3. prints extracted user_name
+# 4. reverses then loops through the array of encoded names
+# 5. joins each name (each is still an array of characters)
+# 6. capitalizes each name
+# 7. prints the formatted name
+stored_names.each do | name_tuples |
+	names_array = name_tuples[0]
+	user_name = name_tuples[1]
+	print "#{user_name} is also known as "
+	names_array.reverse.each do | name |
+		print "#{name.join.capitalize} "
 	end
+	puts
+end
 
 
 
