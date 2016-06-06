@@ -14,48 +14,69 @@ Pseudocode
 
 =end
 
+# encoding method
 def simple_encoder(letter)
+	
 	vowels = ['a', 'e', 'i', 'o', 'u']
-	if vowels.include?(letter)
-		v_index = vowels.index(letter)
-		if v_index == 4
+	
+	# checks if the letter is in the vowels array
+	if vowels.include?(letter) 
+		
+		v_index = vowels.index(letter) # if the letter is a vowel get its index in the the array
+		
+		# checks if it is u, and returns a
+		if v_index == 4 
 			return 'a'
 		end
-		vowels[v_index + 1]
+		return vowels[v_index + 1] # return the vowel at the next index
 	else
+		 # check for the letter z and return the first consonant
 		if letter == 'z'
 			return 'b'
 		end
-		next_letter = letter.next
-		if vowels.include?(next_letter)
+		
+		# changes others to the next letter
+		next_letter = letter.next 
+		
+		# checks if that letter is a vowel, if it is it advances to the next letter again
+		if vowels.include?(next_letter) 
 			return next_letter.next
 		end
+		
+		# example c -> d
 		return next_letter
 	end
 end
-
-first_name = []
-last_name = []
 
 puts "--------------------------------------------------"
 puts "DBC Alias Manager".center(50)
 puts "--------------------------------------------------"
 puts
-print "Enter your name: "
 
-user_name = gets.chomp
-user_name_lower = user_name.downcase
-names_array = user_name_lower.split(' ')
+# main program loop
+while true do
+	
+	# user input
+	print "Enter your name or type 'quit': "
+	user_name = gets.chomp
+	user_name_lower = user_name.downcase
+	
+	# exit case
+	if user_name_lower == 'quit'
+		exit
+	end
+	
+	# splits the array into names, and then to individual characters
+	names_array = user_name_lower.split(' ')
+	names_array[0] = names_array[0].split('').map! { |letter| simple_encoder(letter) }
+	names_array[1] = names_array[1].split('').map! { |letter| simple_encoder(letter) }
 
-
-
-names_array[0] = names_array[0].split('').map! { |letter| simple_encoder(letter) }
-names_array[1] = names_array[1].split('').map! { |letter| simple_encoder(letter) }
-
-puts
-puts "You entered: #{user_name}."
-puts "Your new Secret Spy Alias is: #{names_array[1].join.capitalize} #{names_array[0].join.capitalize}"
-
+	# Outputs
+	puts
+	puts "You entered: #{user_name}"
+	puts "Your new Secret Spy Alias is: #{names_array[1].join.capitalize} #{names_array[0].join.capitalize}"
+	puts
+end
 
 
 
