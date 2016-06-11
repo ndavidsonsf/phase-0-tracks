@@ -8,3 +8,8 @@ Characteristics
 	- Breed
 	- Fur Color
 	- Fur Length
+Behavior
+	- barks
+	- jumps
+	- rolls over
+	- sits
