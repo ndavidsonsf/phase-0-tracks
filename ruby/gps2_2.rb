@@ -1,3 +1,5 @@
+#GPS 2.2 with Tony
+
 # Method to create a list
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
 # steps: 
@@ -22,7 +24,7 @@ end
 # input: item name and optional quantity
 # steps: 
   # Get item name from user
-  # Ask for quanity; allow user to skip
+  # Ask for quantity; allow user to skip
   # If qty is not given, use default qty
   # add item and qty to the hash
 # output: print list to console
@@ -63,7 +65,7 @@ end
 # Method to print a list and make it look pretty
 # input: list name
 # steps:
-  # print the list - with each item and qty on seperate lines
+  # print the list - with each item and qty on separate lines
   # use '-' or ':' between item and qty
 # output: printed list to console
 
@@ -73,9 +75,12 @@ def print_list(grocery_list)
   end
 end
 
+# testing
 #grocery_list = create_list("milk")
 #grocery_list = remove_item("milk", grocery_list)
 
+# Release 4
+# Driver Code
 grocery_list = create_list("")
 grocery_list = add_item("lemonade", 2, grocery_list)
 grocery_list = add_item("tomatoes", 3, grocery_list)
@@ -89,3 +94,18 @@ print_list(grocery_list)
 # grocery_list = add_item("bananas", 2, grocery_list)
 # remove_item("carrots", grocery_list)
 # update_qty("cereal", 10, grocery_list)
+
+# Release 5 - Reflection
+=begin
+- What did you learn about pseudocode from working on this challenge?
+Pseudocode is extremely helpful.  I learned that when you plan it out step-by-step, then it translate much easier to simple code.
+- What are the tradeoffs of using arrays and hashes for this challenge?
+Using a hash allowed us to add items using a label instead of an index.  We were able to incorporate multi-dimensional data structures in this, when an array inside of a hash.
+- What does a method return?
+Implicit return.  A method in ruby will return the last line.  In our case, it was always returning the hash, grocery_list, so that if called in another method it would be the most up-to-date.
+- What kind of things can you pass into methods as arguments?
+You can pass all data types
+- How can you pass information between methods?
+You can call methods within methods, and we were able to pass information by making.  In order to keep passing information you had to return the value and then call it again, and repeat that process each time.
+- What concepts were solidified in this challenge, and what concepts are still confusing?
+I am still have some problems with arguments and calling
