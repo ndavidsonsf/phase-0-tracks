@@ -33,6 +33,7 @@ Pseudocode
 
 class Aircraft
 	
+	# defines getter/setters
 	attr_accessor :type, :years_in_service, :home_base
 
 	def initialize(type, years_in_service, home_base)
@@ -67,11 +68,13 @@ class Aircraft
 		end
 	end
 
+	# prints user inputs to the console
 	def print_to_console
 		puts "Aircraft: #{@type}, Years in Service: #{@years_in_service}, Home base: #{@home_base}"
 	end
 end
 
+# initializes an empty array and string to gather and store user inputs
 planes = []
 plane_type =''
 
@@ -80,40 +83,32 @@ puts "Airplane Information Database".center(50)
 puts "Main Menu".center(50)
 puts "-" * 50
 
+# loop to gather input from user and exit the program
 until plane_type == 'exit'
 	
 	print "Enter aircraft type, or enter 'exit' to exit: "
 	plane_type = gets.chomp
-	break if plane_type == 'exit'
+	break if plane_type == 'exit' # break to exit the loop and move to print user input summary
 
 	print "How many years has the #{plane_type} been in service? "
-	years = gets.chomp.to_i
+	years = gets.chomp.to_i #casts YEARS to an integer
 
 	print "Where is the #{plane_type} based? "
 	base = gets.chomp
 
 	puts "-" * 50
 
+	# initializes an instance of the class with user inputs and adds them to the planes array
 	planes << Aircraft.new(plane_type, years, base)
 end
 
+# OUTPUT - for each element in the planes array it calls on the print method to format the printing to the console
 puts "-" * 50
 puts "Aircraft inventory:"
 planes.each do |plane|
 	plane.print_to_console
 end
 puts "-" * 50
-
-
-
-
-
-
-
-
-
-
-
 
 
 =begin
