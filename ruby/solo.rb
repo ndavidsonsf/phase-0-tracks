@@ -33,7 +33,7 @@ Pseudocode
 
 class Aircraft
 
-	def initialize(type, time_in_service, home_base)
+	def initialize(type, years_in_service, home_base)
 		@type = type
 		@years_in_service = years_in_service
 		@home_base = home_base
@@ -49,9 +49,9 @@ class Aircraft
 
 	def maintenance_required
 		if @years_in_service >= 20
-			puts "The #{@type} has been in service for #{years_in_service} years and is grounded for required maintenance."
+			puts "The #{@type} has been in service for #{@years_in_service} years and is grounded for required maintenance."
 		else
-			puts "The #{@type} has only been in service for #{years_in_service} years and is not in need of maintenance."
+			puts "The #{@type} has only been in service for #{@years_in_service} years and is not in need of maintenance."
 		end
 	end
 
@@ -67,10 +67,13 @@ class Aircraft
 end
 
 
-united.Aircraft.new('Boeing 737', 19, 'SFO')
-
-
-
+united = Aircraft.new('Boeing 737', 20, 'SFO')
+united.take_off
+united.landing
+united.maintenance_required
+united.delayed_departure(0)
+united.delayed_departure(1)
+united.delayed_departure(6)
 
 
 
