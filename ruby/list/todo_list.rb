@@ -22,11 +22,6 @@ class TodoList
 		@list[index]
 	end
 
-	
-
-
-
 end
 
 
-#TodoList.new("do the dishes", "mow the lawn")
