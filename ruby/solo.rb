@@ -66,9 +66,58 @@ class Aircraft
 			puts "The flight on the #{@type} has been delayed #{hours} hours."
 		end
 	end
+
+	def print_to_console
+		puts "Aircraft: #{@type}, Years in Service: #{@years_in_service}, Home base: #{@home_base}"
+	end
 end
 
+planes = []
+plane_type =''
 
+puts "-" * 50
+puts "Airplane Information Database".center(50)
+puts "Main Menu".center(50)
+puts "-" * 50
+
+until plane_type == 'exit'
+	
+	print "Enter aircraft type, or enter 'exit' to exit: "
+	plane_type = gets.chomp
+	break if plane_type == 'exit'
+
+	print "How many years has the #{plane_type} been in service? "
+	years = gets.chomp.to_i
+
+	print "Where is the #{plane_type} based? "
+	base = gets.chomp
+
+	puts "-" * 50
+
+	planes << Aircraft.new(plane_type, years, base)
+end
+
+puts "-" * 50
+puts "Aircraft inventory:"
+planes.each do |plane|
+	plane.print_to_console
+end
+puts "-" * 50
+
+
+
+
+
+
+
+
+
+
+
+
+
+=begin
+Release1 - test code
 united = Aircraft.new('Boeing 737', 16, 'SFO')
 united.take_off
 united.landing
@@ -80,7 +129,7 @@ united.type = 'Boeing 787-9 Dreamliner'
 united.take_off
 united.delayed_departure(1)
 united.delayed_departure(6)
-
+=end
 
 
 
