@@ -25,6 +25,37 @@ class Santa
 			"Blitzen"
 		]
 	end
+
+	def celebrate_birthday
+		@age += 1
+		
+	end
+
+	def get_mad_at(reindeer_name)
+		mad_at = @reindeer_ranking.delete(reindeer_name)
+		@reindeer_ranking << reindeer_name
+		p @reindeer_ranking
+	end
+
+	# setter methods of attributes
+	def gender=(new_gender)
+		@gender = new_gender
+	end
+
+	# getter methods of attributes
+	def age
+		@age
+	end
+
+	def ethnicity
+		@ethnicity
+	end
+
+	def gender
+		@gender
+	end
+
+
 end
 
 #DRIVER CODE
@@ -46,22 +77,33 @@ example_genders = [
 	"male",
 	"female",
 	"gender fluid",
-	"N/A"
+	"queer"
 ]
 example_ethnicities = [
 	"black",
 	"Latino",
 	"white",
 	"Japanese-African",
-	"prefer not to say",
+	"American-Indian",
 	"Mystical Creature (unicorn)",
-	"N/A"
+	"Straight up Ninja"
 ]
 
+
+# testing release1
+=begin
 santas = []
 
 santas << Santa.new(example_genders.sample, example_ethnicities.sample, rand(100))
 santas << Santa.new(example_genders.sample, example_ethnicities.sample, rand(100))
 santas << Santa.new(example_genders.sample, example_ethnicities.sample, rand(100))
+=end
 
-p santas
+# testing release 2
+
+saint_nick = Santa.new(example_genders.sample, example_ethnicities.sample, rand(100))
+puts "Recorded: Santa identifying as #{saint_nick.gender} and #{saint_nick.ethnicity} of age #{saint_nick.age}."
+kris_kringle = Santa.new('male', 'white', 70)
+puts "Recorded: Santa identifying as #{kris_kringle.gender} and #{kris_kringle.ethnicity} of age #{kris_kringle.age}."
+puts "Santa just celebrated a birthday, they are now #{kris_kringle.celebrate_birthday} years old."
+saint_nick.get_mad_at("Rudolph")
