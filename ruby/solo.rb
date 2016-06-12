@@ -32,6 +32,8 @@ Pseudocode
 =end
 
 class Aircraft
+	
+	attr_accessor :type, :years_in_service, :home_base
 
 	def initialize(type, years_in_service, home_base)
 		@type = type
@@ -57,23 +59,28 @@ class Aircraft
 
 	def delayed_departure(hours)
 		if hours == 0
-			puts "Your flight is scheduled to depart on time."
+			puts "The flight on the #{@type} is scheduled to depart on time."
 		elsif hours == 1
-			puts "Your flight has been delayed #{hours} hour."
+			puts "TheThe flight on the #{@type} has been delayed #{hours} hour."
 		else
-			puts "Your flight has been delayed #{hours} hours."
+			puts "The flight on the #{@type} has been delayed #{hours} hours."
 		end
 	end
 end
 
 
-united = Aircraft.new('Boeing 737', 20, 'SFO')
+united = Aircraft.new('Boeing 737', 16, 'SFO')
 united.take_off
 united.landing
 united.maintenance_required
+united.years_in_service = 34
+united.maintenance_required
 united.delayed_departure(0)
+united.type = 'Boeing 787-9 Dreamliner'
+united.take_off
 united.delayed_departure(1)
 united.delayed_departure(6)
+
 
 
 
