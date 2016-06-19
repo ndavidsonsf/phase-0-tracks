@@ -19,9 +19,8 @@ class VirusPredictor
     @population_density = population_density
   end
 
-  # calling two private methods
   def virus_effects
-    puts "#{@state} will lose #{predicted_deaths} and will spread in #{speed_of_spread} months"
+    puts "#{@state} will lose #{predicted_deaths} people in this out break and will spread across the state #{speed_of_spread} months.\n\n"
     # predicted_deaths
     # speed_of_spread
   end
