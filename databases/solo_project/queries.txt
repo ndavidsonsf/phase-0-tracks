@@ -1,0 +1,68 @@
+Nicholas Davidson
+SQL Queries
+
+Release 2
+1.	
+	sqlite> SELECT * FROM partners;
+	1|Nicholas Davidson|1232584|1|20041101
+	2|Frank Sumatra|1015688|3|20010317
+	3|Johnny Latte|2256745|2|20160601
+	4|Polly Guatemala|1992300|4|20140401
+	5|Ashley Dey Merveau|1204688|2|20060321
+
+2. 
+	sqlite> UPDATE partners SET store_num=2 WHERE name="Nicholas Davidson";
+	sqlite> SELECT * FROM partners;
+	1|Nicholas Davidson|1232584|2|20041101
+	2|Frank Sumatra|1015688|3|20010317
+	3|Johnny Latte|2256745|2|20160601
+	4|Polly Guatemala|1992300|4|20140401
+
+
+3.
+	SELECT * FROM partners, stores WHERE partners.store_num = stores.id;
+	1|Nicholas Davidson|1232584|2|20041101|2|Chestnut
+	2|Frank Sumatra|1015688|3|20010317|3|Polk Street
+	3|Johnny Latte|2256745|2|20160601|2|Chestnut
+	4|Polly Guatemala|1992300|4|20140401|4|Union Street
+
+4.
+	sqlite> SELECT partners.name, stores.name FROM partners, stores WHERE partners.store_num = stores.id;
+	Nicholas Davidson|Chestnut
+	Frank Sumatra|Polk Street
+	Johnny Latte|Chestnut
+	Polly Guatemala|Union Street
+
+	-or-
+
+	sqlite> SELECT partners.name, stores.name FROM partners JOIN stores ON partners.store_num = stores.id;
+	Nicholas Davidson|Chestnut
+	Frank Sumatra|Polk Street
+	Johnny Latte|Chestnut
+	Polly Guatemala|Union Street
+
+5. 
+	sqlite> DELETE FROM partners WHERE name="Frank Sumatra"
+   ...> ;
+	sqlite> SELECT * FROM partners;
+	1|Nicholas Davidson|1232584|2|20041101
+	3|Johnny Latte|2256745|2|20160601
+	4|Polly Guatemala|1992300|4|20140401
+
+Release 3
+
+1. This is one that I did in release 2
+	sqlite> SELECT partners.name, stores.name FROM partners JOIN stores ON partners.store_num = stores.id;
+	Nicholas Davidson|Chestnut
+	Frank Sumatra|Polk Street
+	Johnny Latte|Chestnut
+	Polly Guatemala|Union Street
+
+	Inner, Outer, Left, and Right are the  different basic types of joins.
+
+2. 
+	sqlite> SELECT partners.name, stores.name FROM partners LEFT JOIN stores ON partners.store_num = stores.id;
+	Nicholas Davidson|Chestnut
+	Johnny Latte|Chestnut
+	Polly Guatemala|
+
