@@ -40,9 +40,10 @@ def print_info(db)
 			if column_name.is_a? Integer
 				next
 			end
-			print "#{column_name}: #{value}\t"
+			print "#{column_name}: #{value}\t\t"
+
 		end
-		
+		puts
 	end
 	puts
 end
@@ -52,11 +53,11 @@ def add_new_input(db)
 	puts "-" * 50
 	puts "Add New Horse Information: "
 	print "Name: "
-	horse_name = gets.chomp.capitalize
+	horse_name = gets.split.map(&:capitalize).join(' ')
 	print "Breed: "
-	horse_breed = gets.chomp.capitalize
+	horse_breed = gets.split.map(&:capitalize).join(' ')
 	print "Color: "
-	horse_color = gets.chomp.capitalize
+	horse_color = gets.split.map(&:capitalize).join(' ')
 	print "Age: "
 	horse_age = gets.to_i
 	print "Rideable (y/n): "
