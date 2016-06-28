@@ -31,6 +31,22 @@ def delete_info(db, horse_to_update)
 	db.execute("DELETE FROM horses WHERE name = ?", [horse_to_update])
 end
 
+def print_info(db)
+	display_info = db.execute("SELECT id, name, breed, color, age, rideable FROM horses")
+
+	display_info.each do | row |
+		
+		row.each do | column_name, value |
+			if column_name.is_a? Integer
+				next
+			end
+			print "#{column_name}: #{value}\t"
+		end
+		
+	end
+	puts
+end
+
 
 def add_new_input(db)
 	puts "-" * 50
@@ -60,6 +76,7 @@ def update_info_input(db)
 	horse_selection = gets.split.map(&:capitalize).join(' ')
 
 	while true do
+		puts "-" * 50
 		puts "Enter the category that you would like to update: "
 		puts "     1. Name"
 		puts "     2. Breed"
@@ -97,6 +114,7 @@ def update_info_input(db)
 			else
 				new_rideable = "false"
 			end
+			update_info(db, horse_selection, "rideable", new_rideable)
 			break
 		else
 			puts "Not a valid choice.  Try again."
