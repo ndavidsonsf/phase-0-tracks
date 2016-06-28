@@ -1,16 +1,3 @@
-# Pseudocode
-# Main Menu
-# => 1. Add New Information
-# => 2. Update Existing Information
-# => 3. Delete Information
-# Use methods to define each option
-# 	- Add new
-# 		- Take information from user
-# 		- Adds information to data base
-#  -
-
-
-
 require 'SQLite3'
 
 
@@ -21,23 +8,27 @@ def add_new(db, horse_name, horse_breed, horse_color, horse_age, horse_rideable)
 	db.execute("INSERT INTO horses (name, breed, color, age, rideable) VALUES (?, ?, ?, ?, ?)", [horse_name, horse_breed, horse_color, horse_age, horse_rideable])
 end
 
+# Example input
 # Blue Dog, name, Blue Horse Dog
 # UPDATE horses SET name = "Blue Horse Dog" WHERE name = "Blue Dog";
 def update_info(db, horse_to_update, selection_to_update, updated_value)
 	db.execute("UPDATE horses SET #{selection_to_update}= ? WHERE name = ?", [updated_value, horse_to_update])
 end
-
+# delete method
 def delete_info(db, horse_to_update)
 	db.execute("DELETE FROM horses WHERE name = ?", [horse_to_update])
 end
 
+# print method
 def print_info(db)
 	display_info = db.execute("SELECT id, name, breed, color, age, rideable FROM horses")
 
+	# iterates over each row 
 	display_info.each do | row |
 		
+		# iterates through each row
 		row.each do | column_name, value |
-			if column_name.is_a? Integer
+			if column_name.is_a? Integer # checks if key is an integer, if so skips
 				next
 			end
 			print "#{column_name}: #{value}\t\t"
@@ -48,7 +39,7 @@ def print_info(db)
 	puts
 end
 
-
+# method to gather user input to add to database
 def add_new_input(db)
 	puts "-" * 50
 	puts "Add New Horse Information: "
@@ -70,6 +61,7 @@ def add_new_input(db)
 	add_new(db, horse_name, horse_breed, horse_color, horse_age, horse_rideable)
 end
 
+# method to gather user inputs to update
 def update_info_input(db)
 	puts "-" * 50
 	puts "Update Information: "
@@ -123,6 +115,7 @@ def update_info_input(db)
 	end
 end
 
+# method to delete information
 def delete_info_input(db)
 	puts "-" * 50
 	puts "Delete Information: "
