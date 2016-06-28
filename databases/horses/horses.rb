@@ -21,19 +21,30 @@ def add_new(db, horse_name, horse_breed, horse_color, horse_age, horse_rideable)
 	db.execute("INSERT INTO horses (name, breed, color, age, rideable) VALUES (?, ?, ?, ?, ?)", [horse_name, horse_breed, horse_color, horse_age, horse_rideable])
 end
 
+# Blue Dog, name, Blue Horse Dog
+# UPDATE horses SET name = "Blue Horse Dog" WHERE name = "Blue Dog";
+def update_info(db, horse_to_update, selection_to_update, updated_value)
+	db.execute("UPDATE horses SET #{selection_to_update}= ? WHERE name = ?", [updated_value, horse_to_update])
+end
+
+def delete_info(db, horse_to_update)
+	db.execute("DELETE FROM horses WHERE name = ?", [horse_to_update])
+end
+
 
 def add_new_input(db)
-	puts
+	puts "-" * 50
+	puts "Add New Horse Information: "
 	print "Name: "
-	horse_name = gets.chomp
+	horse_name = gets.chomp.capitalize
 	print "Breed: "
-	horse_breed = gets.chomp
+	horse_breed = gets.chomp.capitalize
 	print "Color: "
-	horse_color = gets.chomp
+	horse_color = gets.chomp.capitalize
 	print "Age: "
 	horse_age = gets.to_i
 	print "Rideable (y/n): "
-	horse_rideable_input = gets.chomp
+	horse_rideable_input = gets.chomp.downcase
 	if horse_rideable_input == "y"
 		horse_rideable = "true"
 	else
@@ -41,6 +52,69 @@ def add_new_input(db)
 	end
 	add_new(db, horse_name, horse_breed, horse_color, horse_age, horse_rideable)
 end
+
+def update_info_input(db)
+	puts "-" * 50
+	puts "Update Information: "
+	print "Enter the horse record you would like to update: "
+	horse_selection = gets.split.map(&:capitalize).join(' ')
+
+	while true do
+		puts "Enter the category that you would like to update: "
+		puts "     1. Name"
+		puts "     2. Breed"
+		puts "     3. Color"
+		puts "     4. Age"
+		puts "     5. Rideable"
+		print "Please select: "
+		update_selection = gets.to_i
+
+		if update_selection == 1
+			print "New name: "
+			new_name = gets.chomp.split.map(&:capitalize).join(' ')
+			update_info(db, horse_selection, "name", new_name)
+			break
+		elsif update_selection == 2
+			print "New breed: "
+			new_breed = gets.chomp.split.map(&:capitalize).join(' ')
+			update_info(db, horse_selection, "breed", new_breed)
+			break
+		elsif update_selection == 3
+			print "New horse_color: "
+			new_color = gets.chomp.split.map(&:capitalize).join(' ')
+			update_info(db, horse_selection, "color", new_color)
+			break
+		elsif update_selection == 4
+			print " New age: "
+			new_age = gets.to_i
+			update_info(db, horse_selection, "age", new_age)
+			break
+		elsif update_selection == 5
+			print "Rideable (y/n): "
+			rideable = gets.chomp.downcase
+			if rideable == "y"
+				new_rideable = "true"
+			else
+				new_rideable = "false"
+			end
+			break
+		else
+			puts "Not a valid choice.  Try again."
+		end
+	end
+end
+
+def delete_info_input(db)
+	puts "-" * 50
+	puts "Delete Information: "
+	print "Enter the horse record you would like to delete: "
+	horse_selection = gets.chomp.capitalize
+	delete_info(db, horse_selection)
+end
+		
+			
+
+
 
 
 
