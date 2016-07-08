@@ -39,7 +39,7 @@ header {
 
 }
 
-img#mad {
+#mad {
 	width: 200px;
 	height: auto;
 	margin-left: 10px;
@@ -47,7 +47,7 @@ img#mad {
 
 }
 
-img#hil {
+#hil {
 	width: 200px;
 	height: auto;
 	margin-left: 10px;
@@ -69,7 +69,14 @@ a:link, a:visited {
 	color: white;
 }
 
-table.nav {
+.nav {
+	height: 60px;
+    width: 200px;
+    border-radius: 5px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    opacity: 1;
 	margin-left: auto;
 	margin-right: auto;
 }
